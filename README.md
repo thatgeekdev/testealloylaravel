@@ -4,17 +4,7 @@
 
 Este é um teste técnico para desenvolvedores da Alloy, consistindo na implementação de uma aplicação de lista de tarefas (To-Do List) utilizando **Laravel 12** como backend e **Vue.js 3** como frontend.
 
-## Objetivo do Teste
 
-O candidato deve implementar uma aplicação completa de gerenciamento de tarefas que demonstre conhecimentos em:
-
-- Desenvolvimento de APIs RESTful com Laravel
-- Frontend moderno com Vue.js e Pinia
-- Gerenciamento de banco de dados SQLite
-- Sistema de filas e jobs em Laravel
-- Implementação de cache e invalidação
-- Soft deletes
-- Integração frontend/backend
 
 ## Stack Tecnológica
 
@@ -141,13 +131,23 @@ O candidato deve implementar uma aplicação completa de gerenciamento de tarefa
 5. **Job**
    ```php
    class DeleteCompletedTask implements ShouldQueue
+   class DeleteCompletedTask implements ShouldQueue
    {
-       // Implementar lógica de exclusão definitiva
+      use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+      public function __construct(public Task $task) {}
+
+      public function handle(): void
+      {
+         if ($this->task->fresh()->finalizado) {
+               $this->task->delete();
+         }
+      }
    }
    ```
 
 6. **Cache**
-   - Implementar cache com tags
+   - Implementa cache com tags
    - Service ou Repository pattern para gerenciar cache
 
 ### Frontend (Vue.js)
@@ -252,9 +252,9 @@ O candidato deve implementar uma aplicação completa de gerenciamento de tarefa
 - [ ] Testes unitários/feature
 - [ ] Tratamento de erros robusto
 - [ ] Validações frontend e backend
-- [ ] Responsividade da interface
-- [ ] Documentação de código
-- [ ] Otimizações de performance
+- [ ] Responsividade da interface - por implementar
+- [ ] Documentação de código - por implementar
+- [ ] Otimizações de performance - por implementar
 
 ## Estrutura de Entrega
 
@@ -276,24 +276,14 @@ O candidato deve implementar uma aplicação completa de gerenciamento de tarefa
 
 ### Documentação
 - README.md atualizado com instruções específicas
-- Comentários no código explicando lógicas complexas
-- Documentação da API (opcional, mas valorizado)
+- Comentários no código explicando lógicas complexas - nada complexo por agora
+- Documentação da API (opcional, mas valorizado) - por implementar
 
-## Dicas de Implementação
 
-1. **Use o design fornecido** em `public/webflow/index.html` como referência visual
-2. **Implemente primeiro o CRUD básico**, depois adicione cache e filas
-3. **Valide dados** tanto no frontend quanto no backend
-4. **Use transações** para operações que envolvem múltiplas tabelas
-5. **Implemente loading states** para melhor UX
-6. **Trate erros** de forma amigável ao usuário
+## License
 
-## Contato
-
-Para dúvidas sobre o teste, entre em contato com a equipe de desenvolvimento da Alloy.
+MIT © Jose Jaime Matsimbe
 
 ---
 
-**Boa sorte! 🚀**
-
-
+*Fique à vontade para entrar em contato caso tenha dúvidas ou precise de suporte.*

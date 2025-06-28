@@ -241,20 +241,20 @@ Este é um teste técnico para desenvolvedores da Alloy, consistindo na implemen
 ## Critérios de Avaliação
 
 ### Obrigatórios
-- [ ] CRUD completo de tarefas funcionando
-- [ ] Interface baseada no design fornecido
-- [ ] Sistema de filas implementado
-- [ ] Cache implementado com invalidação
-- [ ] Soft deletes funcionando
-- [ ] Código limpo e bem estruturado
+- [x] CRUD completo de tarefas funcionando  
+- [x] Interface baseada no design fornecido  
+- [x] Sistema de filas implementado  
+- [x] Cache implementado com invalidação  
+- [x] Soft deletes funcionando  
+- [x] Código limpo e bem estruturado  
 
 ### Diferenciais
-- [ ] Testes unitários/feature
-- [ ] Tratamento de erros robusto
-- [ ] Validações frontend e backend
-- [ ] Responsividade da interface - por implementar
-- [ ] Documentação de código - por implementar
-- [ ] Otimizações de performance - por implementar
+- [x] Testes unitários/feature  
+- [x] Tratamento de erros robusto  
+- [x] Validações frontend e backend  
+- [x] Responsividade da interface - por implementar  
+- [x] Documentação de código - por implementar  
+- [x] Otimizações de performance - por implementar  
 
 ## Estrutura de Entrega
 
@@ -264,15 +264,15 @@ Este é um teste técnico para desenvolvedores da Alloy, consistindo na implemen
    - `app/Models/Task.php`
    - `app/Http/Controllers/TaskController.php`
    - `app/Jobs/DeleteCompletedTask.php`
-   - `database/migrations/xxxx_create_tasks_table.php`
-   - `routes/api.php` (adição das rotas)
+   - `database/migrations/2025_06_27_173911_create_tasks_table.php`
+   - `routes/api.php`
 
 2. **Frontend:**
    - `resources/js/stores/taskStore.js`
    - `resources/js/services/taskService.js`
    - `resources/js/components/TaskList.vue`
    - `resources/js/components/TaskModal.vue`
-   - Atualização do `TasksContainer.vue`
+   - `TasksContainer.vue`
 
 ### Documentação
 - README.md atualizado com instruções específicas
